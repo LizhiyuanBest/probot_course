@@ -1,0 +1,8 @@
+prefix=/home/li/ROS/probot_course/devel
+
+Name: probot_demo
+Description: Description of probot_demo
+Version: 0.0.0
+Cflags: -I/home/li/ROS/probot_course/devel/include
+Libs: -L${prefix}/lib 
+Requires: roscpp rospy moveit_core moveit_ros_planning_interface probot_msgs std_msgs probot_anno_ikfast_manipulator_plugin message_runtime
