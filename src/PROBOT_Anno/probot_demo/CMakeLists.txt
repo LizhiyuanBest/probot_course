@@ -4,13 +4,6 @@ project(probot_demo)
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
 
-# Set cmake prefix path to enable cmake to find mypross.h
-# set(CMAKE_PREFIX_PATH ${CMAKE_PREFIX_PATH} /home/li/ROS/myros/devel/include/)
-# set(INCLUDE           "$/home/li/ROS/myros/devel/include/")
-
-# /home/li/ROS/myros/devel/include/myprocess
-
-
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
@@ -132,11 +125,6 @@ catkin_package(
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(
- include
-   /home/li/ROS/myros/devel/include/myprocess
-  ${catkin_INCLUDE_DIRS}
-)
 # 添加头文件
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 include_directories("/usr/include/libusb-1.0/")
@@ -175,49 +163,8 @@ list(REMOVE_ITEM PCL_LIBRARIES "vtkproj4")
 #   ${catkin_LIBRARIES}
 # )
 
-add_executable(moveit_fk_demo src/moveit_fk_demo.cpp)
-target_link_libraries(moveit_fk_demo ${catkin_LIBRARIES})
 
-add_executable(moveit_ik_demo src/moveit_ik_demo.cpp)
-target_link_libraries(moveit_ik_demo ${catkin_LIBRARIES})
 
-add_executable(moveit_cartesian_demo src/moveit_cartesian_demo.cpp)
-target_link_libraries(moveit_cartesian_demo ${catkin_LIBRARIES})
-
-add_executable(moveit_collision_demo src/moveit_collision_demo.cpp)
-target_link_libraries(moveit_collision_demo ${catkin_LIBRARIES})
-
-add_executable(moveit_circle_demo src/moveit_circle_demo.cpp)
-target_link_libraries(moveit_circle_demo ${catkin_LIBRARIES})
-
-add_executable(moveit_revise_trajectory_demo src/moveit_revise_trajectory_demo.cpp)
-target_link_libraries(moveit_revise_trajectory_demo ${catkin_LIBRARIES})
-
-add_executable(moveit_continue_trajectory_demo src/moveit_continue_trajectory_demo.cpp)
-target_link_libraries(moveit_continue_trajectory_demo ${catkin_LIBRARIES})
-
-add_executable(probot_sync_demo src/probot_sync_demo.cpp)
-target_link_libraries(probot_sync_demo ${catkin_LIBRARIES})
-
-# add_executable(ik src/ik.cpp)
-# target_link_libraries(ik ${catkin_LIBRARIES})
-
-add_executable(myplan src/myplan.cpp)
-target_link_libraries(myplan ${catkin_LIBRARIES})
-
-# add_executable(jacob src/jacob.cpp)
-# target_link_libraries(jacob ${catkin_LIBRARIES})
-
-add_executable(get_jacob src/get_jacob.cpp)
-target_link_libraries(get_jacob ${catkin_LIBRARIES})
-
-add_executable(cloud_sub src/cloud_sub.cpp)
-target_link_libraries(cloud_sub ${catkin_LIBRARIES} 
-  ${OpenCV_LIBS} ${freenect2_LIBRARY} ${PCL_LIBRARIES})
-add_dependencies(cloud_sub ${PROJECT_NAME}_gencpp)
-
-add_executable(test_ibvs src/test_ibvs.cpp)
-target_link_libraries(test_ibvs ${catkin_LIBRARIES})
 
 #############
 ## Install ##
@@ -253,31 +200,7 @@ target_link_libraries(test_ibvs ${catkin_LIBRARIES})
 #   # myfile2
 #   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 # )
-install(PROGRAMS 
-   scripts/moveit_fk_demo.py
-   scripts/moveit_ik_demo.py
-   scripts/moveit_cartesian_demo.py
-   scripts/moveit_attached_object_demo.py
-   scripts/moveit_circle_demo.py
-   scripts/moveit_revise_trejectory_demo.py
-   scripts/probot_demo.py
-   scripts/probot_drawing.py
-   scripts/test_move.py
-   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
 
-install(TARGETS
-   moveit_fk_demo 
-   moveit_ik_demo 
-   moveit_cartesian_demo
-   moveit_collision_demo 
-   moveit_circle_demo 
-   moveit_revise_trajectory_demo 
-   moveit_continue_trajectory_demo
-   ARCHIVE DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-   LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
-   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
 
 #############
 ## Testing ##

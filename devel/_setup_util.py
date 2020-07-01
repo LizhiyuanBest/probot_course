@@ -270,7 +270,7 @@ if __name__ == '__main__':
 
         if not args.local:
             # environment at generation time
-            CMAKE_PREFIX_PATH = '/home/li/ROS/robot_ros/devel;/home/li/ROS/robotiq_ws/devel;/home/li/ROS/universal_robot/devel;/home/li/ROS/realsense/devel;/home/li/ROS/abb_ws/devel;/home/li/ROS/probot_ws/devel;/home/li/ROS/myros/devel;/home/li/ROS/catkin_ws/devel;/opt/ros/kinetic'.split(';')
+            CMAKE_PREFIX_PATH = '/home/li/ROS/robot_ros/devel;/home/li/ROS/robotiq_ws/devel;/home/li/ROS/universal_robot/devel;/home/li/ROS/realsense/devel;/home/li/ROS/abb_ws/devel;/home/li/ROS/myros/devel;/home/li/ROS/catkin_ws/devel;/opt/ros/kinetic'.split(';')
         else:
             # don't consider any other prefix path than this one
             CMAKE_PREFIX_PATH = []
